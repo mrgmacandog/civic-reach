@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  /* Example HTML routes
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -23,5 +24,48 @@ module.exports = function(app) {
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
+  });
+  */
+
+  // Get all events and needs everywhere
+  app.get("/", function(req, res) {
+    db.Event.findall({}).then(function(events) {
+      db.Need.findall({}).then(function(needs) {
+        res.render("index", {
+          events: events,
+          needs: needs
+        });
+      });
+    });
+  });
+
+  // Get events and needs from a ceratin zipcode
+  app.get("/zipcode/:zipcode", function(req, res) {
+    db.Event.findall({
+      where: {
+        zip: req.params.zip
+      }
+    }).then(function(events) {
+      db.Need.findall({
+        where: {
+          zip: req.params.zip
+        }
+      }).then(function(needs) {
+        res.render("index", {
+          events: events,
+          needs: needs
+        });
+      });
+    });
+  });
+
+  // Event/need sign-up page
+  app.get("/dashboard", function(req, res) {
+    res.render("dashboard");
+  });
+
+  // Organization sign-up page
+  app.get("/registration", function(req, res) {
+    res.render("registration");
   });
 };
