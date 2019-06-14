@@ -6,7 +6,43 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
-        msg: "Welcome!",
+        // msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/dashboard", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("dashboard", {
+        // msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/registration", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("registration", {
+        // msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/postneed", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("postneed", {
+        // msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/postevent", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("postevent", {
+        // msg: "Welcome!",
         examples: dbExamples
       });
     });
