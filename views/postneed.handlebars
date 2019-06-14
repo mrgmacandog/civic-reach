@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                {{!-- <img src="/public/images/logo-placeholder.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> --}}
+                App Name
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="col-8 offset-2">
+        <div class="row">
+            <h3>Not in our system? <a href="/registration" type="button" class="btn btn-link">Click here to
+                    register!</a></h3>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Select your organization name</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <form class="clearfix mb-4" action="POST">
+                <h3>Post a donation need</h3>
+                <div class="form-group">
+                    <label for="needTitle">Need Title</label>
+                    <input type="text" id="needTitle" class="form-control" aria-describedby="needTitle" placeholder="">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Select the item type</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="needQuantity">Quantity</label>
+                    <input type="number" id="needQuantity" class="form-control" aria-describedby="needQuantity"
+                        placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Need Description</label>
+                    <textarea class="form-control" id="itemDescription" aria-describedby="itemDescription"
+                        placeholder="(Optional) Enter item description here"></textarea>
+                    <button id="donationSubmit" class="btn btn-primary float-right">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
