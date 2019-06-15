@@ -4,8 +4,13 @@
 module.exports = function(sequelize, DataTypes) {
   var Organization = sequelize.define("Organization", {
     name: DataTypes.STRING,
-    phonenumber: DataTypes.STRING,
-    location: DataTypes.STRING
+    email: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    address: DataTypes.STRING,
+    address2: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.STRING,
   });
 
   Organization.associate = function(models) {
@@ -15,7 +20,8 @@ module.exports = function(sequelize, DataTypes) {
     Organization.hasMany(models.Event, {
       onDelete: "cascade"
     });
+    Organization.hasMany(Need);
+    Organization.hasMany(Event);
+    return Organization;
   };
-
-  return Organization;
-};
+}

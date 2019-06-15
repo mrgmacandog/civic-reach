@@ -2,7 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Need = sequelize.define("Need", {
-    name: DataTypes.STRING
+    needTitle: DataTypes.STRING,
+    type: DataTypes.STRING,
+    quantity: DataTypes.STRING,
+    description: DataTypes.STRING,
+
   });
 
   Need.associate = function(models) {
@@ -11,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Need.hasMany(Organization);
+    return Need;
   };
-
-  return Need;
-};
+}

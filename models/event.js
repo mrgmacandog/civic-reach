@@ -2,9 +2,18 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-    name: DataTypes.STRING,
-    datetime: DataTypes.DATE,
-    address: DataTypes.STRING
+    eventTitle: DataTypes.STRING,
+    type: DataTypes.STRING,
+    date: DataTypes.STRING,
+    startTime: DataTypes.STRING,
+    endTime: DataTypes.STRING,
+    venueName: DataTypes.STRING,
+    address: DataTypes.STRING,
+    address2: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip:DataTypes.STRING,
+    description:DataTypes.STRING,
   });
 
   Event.associate = function(models) {
@@ -13,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Event.hasMany(Organization);
+    return Event;
   };
-
-  return Event;
-};
+}
