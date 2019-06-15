@@ -24,6 +24,7 @@ module.exports = function(app) {
   });
   */
 
+  // Route for adding a new organization to the Organizations table
   app.post("/api/orgs", function(req, res) {
     db.Organization.create({
       name: req.body.name,
@@ -39,6 +40,7 @@ module.exports = function(app) {
     });
   });
 
+  // Route for adding a new event to the Events table
   app.post("/api/events", function(req, res) {
     db.Event.create({
       OrganizationId: req.body.orgId, // TODO check to see if needs to be parsed as an int
@@ -59,9 +61,11 @@ module.exports = function(app) {
     });
   });
 
+  // Route for adding a new need to the Needs table
   app.post("/api/needs", function(req, res) {
     db.Need.create({
-      eventName: req.body.eventName,
+      OrganizationId: req.body.orgId, // TODO check to see if needs to be parsed as an int
+      needTitle: req.body.eventName,
       type: req.body.type,
       quantity: req.body.quantity,
       description: req.body.description
