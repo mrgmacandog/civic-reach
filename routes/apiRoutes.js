@@ -61,6 +61,17 @@ module.exports = function(app) {
     });
   });
 
+  // Route for deleting an event
+  app.delete("/api/events/:id", function(req, res) {
+    db.Event.destory({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
   // Route for adding a new need to the Needs table
   app.post("/api/needs", function(req, res) {
     db.Need.create({
@@ -71,6 +82,17 @@ module.exports = function(app) {
       description: req.body.description
     }).then(function(newRecord) {
       res.json(newRecord);
+    });
+  });
+
+  // Route for deleting an event
+  app.delete("/api/needs/:id", function(req, res) {
+    db.Need.destory({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      res.json(result);
     });
   });
 };
