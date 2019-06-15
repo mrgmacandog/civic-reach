@@ -1,9 +1,21 @@
 const Organization = require('./organization');
 
 module.exports = function(sequelize, DataTypes) {
-    var Need = sequelize.define("Need", {
-      name: DataTypes.STRING,
+  var Need = sequelize.define("Need", {
+    needTitle: DataTypes.STRING,
+    type: DataTypes.STRING,
+    quantity: DataTypes.STRING,
+    description: DataTypes.STRING,
+
+  });
+
+  Need.associate = function(models) {
+    Need.belongsTo(models.Organization, {
+      foreignKey: {
+        allowNull: false
+      }
     });
     Need.hasMany(Organization);
     return Need;
   };
+}
