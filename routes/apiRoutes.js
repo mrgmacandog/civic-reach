@@ -24,29 +24,46 @@ module.exports = function(app) {
   });
   */
 
-  app.post("/api/orgs/new", function(req, res) {
+  app.post("/api/orgs", function(req, res) {
     db.Organization.create({
       name: req.body.name,
-      phonenumber: req.body.phonenumber,
-      location: req.body.location
+      email: req.body.email,
+      number: req.body.number,
+      address: req.body.address,
+      address2: req.body.address2,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode
     }).then(function(newRecord) {
       res.json(newRecord);
     });
   });
 
-  app.post("/api/events/new", function(req, res) {
+  app.post("/api/events", function(req, res) {
     db.Events.create({
-      name: req.body.name,
-      datetime: req.body.datetime,
-      address: req.body.address
+      eventTitle: req.body.eventTitle,
+      type: req.body.type,
+      date: req.body.date,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime,
+      venueName: req.body.venueName,
+      address: req.body.address,
+      address2: req.body.address2,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode,
+      description: req.body.description
     }).then(function(newRecord) {
       res.json(newRecord);
     });
   });
 
-  app.post("/api/needs/new", function(req, res) {
+  app.post("/api/needs", function(req, res) {
     db.Events.create({
-      name: req.body.name
+      eventName: req.body.eventName,
+      type: req.body.type,
+      quantity: req.body.quantity,
+      description: req.body.description
     }).then(function(newRecord) {
       res.json(newRecord);
     });
