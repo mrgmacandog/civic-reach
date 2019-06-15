@@ -39,6 +39,10 @@ module.exports = function(app) {
   });
 
   // Event/need sign-up page
+  app.get("/login", function(req, res) {
+    res.render("login");
+  });
+
   // TODO decide whether this page or event/need pages has org dropdown
   // TODO query db for org names to be displayed in the dropdown
   app.get("/dashboard", function(req, res) {
