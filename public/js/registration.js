@@ -29,9 +29,7 @@
         city: $("#inputCity")
           .val()
           .trim(),
-        state: $("#inputState")
-          .val()
-          .trim(),
+        state: $("#inputState").val(),
         zip: $("#inputZip")
           .val()
           .trim()

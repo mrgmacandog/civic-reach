@@ -40,7 +40,8 @@ module.exports = function(app) {
   });
 
   app.post("/api/events", function(req, res) {
-    db.Events.create({
+    db.Event.create({
+      OrganizationId: req.body.orgId, // TODO check to see if needs to be parsed as an int
       eventTitle: req.body.eventTitle,
       type: req.body.type,
       date: req.body.date,
@@ -59,7 +60,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/needs", function(req, res) {
-    db.Events.create({
+    db.Need.create({
       eventName: req.body.eventName,
       type: req.body.type,
       quantity: req.body.quantity,
