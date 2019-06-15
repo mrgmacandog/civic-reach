@@ -13,11 +13,11 @@ module.exports = function(app) {
     });
   });
 
-  // Get events and needs from a ceratin zipcode
-  app.get("/zipcode/:zipcode", function(req, res) {
+  // Get events and needs from a ceratin zip
+  app.get("/zip/:zip", function(req, res) {
     db.Event.findAll({
       where: {
-        zipcode: req.params.zipcode
+        zip: req.params.zip
       }
     }).then(function(events) {
       db.Need.findAll({
@@ -25,7 +25,7 @@ module.exports = function(app) {
           {
             model: db.Organization,
             where: {
-              zipcode: req.params.zipcode
+              zip: req.params.zip
             }
           }
         ]

@@ -28,12 +28,12 @@ module.exports = function(app) {
     db.Organization.create({
       name: req.body.name,
       email: req.body.email,
-      number: req.body.number,
+      phone: req.body.phone,
       address: req.body.address,
       address2: req.body.address2,
       city: req.body.city,
       state: req.body.state,
-      zipcode: req.body.zipcode
+      zip: req.body.zip
     }).then(function(newRecord) {
       res.json(newRecord);
     });
@@ -51,7 +51,7 @@ module.exports = function(app) {
       address2: req.body.address2,
       city: req.body.city,
       state: req.body.state,
-      zipcode: req.body.zipcode,
+      zip: req.body.zip,
       description: req.body.description
     }).then(function(newRecord) {
       res.json(newRecord);
