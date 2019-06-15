@@ -61,6 +61,33 @@ module.exports = function(app) {
     });
   });
 
+  // Route for modifying an event to the Events table
+  app.put("/api/events/:id", function(req, res) {
+    db.Event.update(
+      {
+        eventTitle: req.body.eventTitle,
+        type: req.body.type,
+        date: req.body.date,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        venueName: req.body.venueName,
+        address: req.body.address,
+        address2: req.body.address2,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        description: req.body.description
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(function(newRecord) {
+      res.json(newRecord);
+    });
+  });
+
   // Route for deleting an event
   app.delete("/api/events/:id", function(req, res) {
     db.Event.destory({
@@ -81,6 +108,25 @@ module.exports = function(app) {
       quantity: req.body.quantity,
       description: req.body.description
     }).then(function(newRecord) {
+      res.json(newRecord);
+    });
+  });
+
+  // Route for adding a new need to the Needs table
+  app.put("/api/needs/:id", function(req, res) {
+    db.Need.create(
+      {
+        needTitle: req.body.eventName,
+        type: req.body.type,
+        quantity: req.body.quantity,
+        description: req.body.description
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function(newRecord) {
       res.json(newRecord);
     });
   });
