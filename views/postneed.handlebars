@@ -19,9 +19,10 @@
                     register!</a></h3>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Select your organization name</label>
+                    <label class="input-group-text" for="orgName">Select your organization name</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                {{!-- TODO make values correspond with id's --}}
+                <select class="custom-select" id="orgName">
                     <option selected>Choose...</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -36,9 +37,10 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Select the item type</label>
+                        <label class="input-group-text" for="type">Select the item type</label>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01">
+                    {{!-- TODO make values correspond with id's --}}
+                    <select class="custom-select" id="type">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -63,4 +65,4 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/postneed.js"></script>
