@@ -1,5 +1,5 @@
-const Need = require('./need');
-const Event = require('./event');
+// const Need = require('./need');
+// const Event = require('./event');
 
 module.exports = function(sequelize, DataTypes) {
   var Organization = sequelize.define("Organization", {

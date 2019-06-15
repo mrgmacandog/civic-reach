@@ -1,29 +1,108 @@
 <div id="home">
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+          {{!-- <img src="/public/images/logo-placeholder.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> --}}
+          App Name
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+          {{!-- <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
+          <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Organization Dashboard</a>
+          {{!-- </form> --}}
+        </div>
+    </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Welcome to (App Name)!</h1>
+          <p class="lead">Enter your zipcode to view local concerns or <button type="button" class="btn btn-link">use my
+              location</button></p>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Your Zipcode" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      {{!-- <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         <h2>This is our Home Page!</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+              placeholder="Enter Example Text">
           </div>
           <div class="form-group">
             <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description"
+              placeholder="Enter Example Description"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+      </div> --}}
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h3>Local Events:</h3>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Filter by Event Type</label>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <ul id="example-list" class="list-group">
+              {{#each events}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="example/{{this.id}}">{{this.text}}</a>
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="col-6">
+            <h3>Local Donation Needs:</h3>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Filter by Need Type</label>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <ul id="example-list" class="list-group">
+              {{#each needs}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="example/{{this.id}}">{{this.text}}</a>
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

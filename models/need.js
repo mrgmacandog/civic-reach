@@ -1,4 +1,4 @@
-const Organization = require('./organization');
+// const Organization = require('./organization');
 
 module.exports = function(sequelize, DataTypes) {
   var Need = sequelize.define("Need", {

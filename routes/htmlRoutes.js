@@ -1,23 +1,65 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Get all events and needs everywhere
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+    db.Event.findAll({}).then(function(events) {
+      db.Need.findAll({}).then(function(needs) {
+        res.render("index", {
+          events: events,
+          needs: needs
+        });
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Get events and needs from a ceratin zip
+  app.get("/zip/:zip", function(req, res) {
+    db.Event.findAll({
+      where: {
+        zip: req.params.zip
+      }
+    }).then(function(events) {
+      db.Need.findAll({
+        include: [
+          {
+            model: db.Organization,
+            where: {
+              zip: req.params.zip
+            }
+          }
+        ]
+      }).then(function(needs) {
+        res.render("index", {
+          events: events,
+          needs: needs
+        });
       });
     });
+  });
+
+  // Event/need sign-up page
+  // TODO decide whether this page or event/need pages has org dropdown
+  // TODO query db for org names to be displayed in the dropdown
+  app.get("/dashboard", function(req, res) {
+    res.render("dashboard");
+  });
+
+  // Organization sign-up page
+  app.get("/registration", function(req, res) {
+    res.render("registration");
+  });
+
+  // Post new event page
+  // TODO query db for org names to be displayed in the dropdown
+  app.get("/postevent", function(req, res) {
+    res.render("postevent");
+  });
+
+  // Post new need page
+  // TODO query db for org names to be displayed in the dropdown
+  app.get("/postneed", function(req, res) {
+    res.render("postneed");
   });
 
   // Render 404 page for any unmatched routes
