@@ -12,8 +12,42 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip
-    }).then(function(newRecord) {
-      res.json(newRecord);
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  // Route for modifying an organization in the Organizations table
+  app.put("/api/orgs/:id", function(req, res) {
+    db.Organization.update(
+      {
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        address: req.body.address,
+        address2: req.body.address2,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  // Route for deleting an organization in the Organizations table
+  app.delete("/api/orgs/:id", function(req, res) {
+    db.Organization.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      res.json(result);
     });
   });
 
@@ -33,12 +67,12 @@ module.exports = function(app) {
       state: req.body.state,
       zip: req.body.zip,
       description: req.body.description
-    }).then(function(newRecord) {
-      res.json(newRecord);
+    }).then(function(result) {
+      res.json(result);
     });
   });
 
-  // Route for modifying an event to the Events table
+  // Route for modifying an event in the Events table
   app.put("/api/events/:id", function(req, res) {
     db.Event.update(
       {
@@ -57,17 +91,17 @@ module.exports = function(app) {
       },
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }
-    ).then(function(newRecord) {
-      res.json(newRecord);
+    ).then(function(result) {
+      res.json(result);
     });
   });
 
-  // Route for deleting an event
+  // Route for deleting an event in the Events table
   app.delete("/api/events/:id", function(req, res) {
-    db.Event.destory({
+    db.Event.destroy({
       where: {
         id: req.params.id
       }
@@ -80,20 +114,20 @@ module.exports = function(app) {
   app.post("/api/needs", function(req, res) {
     db.Need.create({
       OrganizationId: req.body.orgId, // TODO check to see if needs to be parsed as an int
-      needTitle: req.body.eventName,
+      needTitle: req.body.needTitle,
       type: req.body.type,
       quantity: req.body.quantity,
       description: req.body.description
-    }).then(function(newRecord) {
-      res.json(newRecord);
+    }).then(function(result) {
+      res.json(result);
     });
   });
 
-  // Route for adding a new need to the Needs table
+  // Route for modifying a need in the Needs table
   app.put("/api/needs/:id", function(req, res) {
     db.Need.create(
       {
-        needTitle: req.body.eventName,
+        needTitle: req.body.needTitle,
         type: req.body.type,
         quantity: req.body.quantity,
         description: req.body.description
@@ -103,14 +137,14 @@ module.exports = function(app) {
           id: req.params.id
         }
       }
-    ).then(function(newRecord) {
-      res.json(newRecord);
+    ).then(function(result) {
+      res.json(result);
     });
   });
 
-  // Route for deleting an event
+  // Route for deleting an event in the Needs table
   app.delete("/api/needs/:id", function(req, res) {
-    db.Need.destory({
+    db.Need.destroy({
       where: {
         id: req.params.id
       }
