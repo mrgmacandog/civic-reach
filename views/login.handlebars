@@ -18,9 +18,11 @@
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
                     <option selected>Choose...</option>
-                    <option value="1">One</option>
+                    {{#each orgs}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
                 </select>
-                <a href="/dashboard" id="login-btn" type="submit" class="btn btn-primary float-right">Submit</a>
+                <a href="/dashboard" id="login-btn" type="submit" class="btn btn-primary float-right">Log in</a>
                 <h3>Not in our system? <a href="/registration" type="button" class="btn btn-link">Click here to
                         register!</a></h3>
             </div>

@@ -8,13 +8,17 @@ $("#login-btn").on("click", function(event) {
     .val()
     .trim();
 
-  // Console log each of the user inputs to confirm we are receiving them
-  console.log(orgId);
-  // Replaces the content in the "recent-member" div with the new info
+  if (orgId !== "Choose...") {
+    // Console log each of the user inputs to confirm we are receiving them
+    console.log(orgId);
 
-  // Clear sessionStorage
-  sessionStorage.clear();
+    // Clear sessionStorage
+    sessionStorage.clear();
 
-  // Store all content into sessionStorage
-  sessionStorage.setItem("orgId", orgId);
+    // Store all content into sessionStorage
+    sessionStorage.setItem("orgId", orgId);
+
+    // Redirect to dashboard adter logging in
+    window.location = "/dashboard";
+  }
 });

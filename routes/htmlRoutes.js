@@ -45,9 +45,11 @@ module.exports = function(app) {
     });
   });
 
-  // Event/need sign-up page
+  // Organization login page
   app.get("/login", function(req, res) {
-    res.render("login");
+    db.Organization.findAll({}).then(function(orgs) {
+      res.render("login", { orgs: orgs });
+    });
   });
 
   // TODO decide whether this page or event/need pages has org dropdown
