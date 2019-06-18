@@ -12,21 +12,41 @@
     <div class="row">
         <div class="col-8 offset-3">
             <h1>Your Organization's Dashboard</h1>
+            <ul id="example-list" class="list-group">
+                {{#each events}}
+                {{!-- {{#if this.OrganizationId ===}} --}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                    <h5>{{this.eventTitle}}</h5>
+                    <p>{{this.description}}</p>
+                    <p>{{this.venueName}}</p>
+                    <p>{{this.address}}</p>
+                    <p>{{this.address2}}</p>
+                    <p>{{this.city}}, {{this.state}} {{this.zip}}</p>
+                    <p>{{this.startTime}} - {{this.endTime}}</p>
+                    {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="row">
+            <a href="/postevent" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Post an event</a>
+            <a href="/postneed" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Post a need</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <h4>Let your community know about an upcoming event!</h4>
-            <a href="/postevent" class="btn btn-primary my-2 my-sm-0" role="button"> Post an event</a>
-        </div>
-        <div class="col-6">
-            <h4>Let your community know about your organization's donation needs.</h4>
-            <a href="/postneed" class="btn btn-primary my-2 my-sm-0" role="button"> Post a need</a>
-        </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <h4>Let your community know about an upcoming event!</h4>
+        <a href="/postevent" class="btn btn-primary my-2 my-sm-0" role="button"> Post an event</a>
     </div>
+    <div class="col-6">
+        <h4>Let your community know about your organization's donation needs.</h4>
+        <a href="/postneed" class="btn btn-primary my-2 my-sm-0" role="button"> Post a need</a>
+    </div>
+</div>
 </div>
 </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/dashboard.js"></script>
