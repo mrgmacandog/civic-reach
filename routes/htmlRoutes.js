@@ -55,14 +55,33 @@ module.exports = function(app) {
   // TODO decide whether this page or event/need pages has org dropdown
   // TODO query db for org names to be displayed in the dropdown
   app.get("/dashboard", function(req, res) {
-    res.render("dashboard");
+    db.Event.findAll({
+      include: [
+        {
+          model: db.Organization
+        }
+      ]
+    }).then(function(events) {
+      db.Need.findAll({
+        include: [
+          {
+            model: db.Organization
+          }
+        ]
+      }).then(function(needs) {
+        console.log(req);
+        res.render("dashboard", {
+          events: events,
+          needs: needs
+        });
+      });
+    });
   });
 
   // Organization sign-up page
   app.get("/registration", function(req, res) {
     res.render("registration");
   });
-
   // Post new event page
   // TODO query db for org names to be displayed in the dropdown
   app.get("/postevent", function(req, res) {
