@@ -5,11 +5,12 @@
 (function() {
   // Run JS once the document is ready
   $(document).ready(function() {
+    var orgId = sessionStorage.getItem("orgId");
     $("#needForm").validate({
       submitHandler: function() {
         // Create newNeed object with input values
         var newNeed = {
-          orgId: $("#orgName").val(),
+          orgId: orgId,
           needTitle: $("#needTitle")
             .val()
             .trim(),
