@@ -1,4 +1,5 @@
 var db = require("../models");
+var opencage = require("opencage-api-client");
 
 module.exports = function(app) {
   // Route for getting all the organization from the Organizations table
@@ -180,5 +181,19 @@ module.exports = function(app) {
     }).then(function(result) {
       res.json(result);
     });
+  });
+
+  // Route for retrieving location
+  app.get("/get-zip/:coords", function(req, res) {
+    opencage
+      .geocode({ q: req.params.coords })
+      .then(function(data) {
+        console.log(data.results[0].components.postcode);
+        var zip = data.results[0].components.postcode;
+        res.redirect("/zip/" + zip);
+      })
+      .catch(function(error) {
+        console.log("error", error.message);
+      });
   });
 };
