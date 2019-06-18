@@ -57,7 +57,7 @@
           data: JSON.stringify(newEvent)
         }).then(function() {
           // Redirect to dashboard once event is added
-          window.location.replace("/dashboard");
+          window.location.replace("/dashboard/org/" + orgId);
         });
       }
     });
