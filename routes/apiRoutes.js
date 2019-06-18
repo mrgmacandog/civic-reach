@@ -1,6 +1,13 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // Route for getting all the organization from the Organizations table
+  app.get("/api/orgs", function(req, res) {
+    db.Organization.findAll({}).then(function(result) {
+      res.json(result);
+    });
+  });
+
   // Route for adding a new organization to the Organizations table
   app.post("/api/orgs", function(req, res) {
     db.Organization.create({
@@ -45,6 +52,17 @@ module.exports = function(app) {
     db.Organization.destroy({
       where: {
         id: req.params.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  // Route for getting all the events from the events table for an organization
+  app.get("/api/orgs/:orgId/events", function(req, res) {
+    db.Event.findAll({
+      where: {
+        OrganizationId: req.params.orgId
       }
     }).then(function(result) {
       res.json(result);
@@ -104,6 +122,17 @@ module.exports = function(app) {
     db.Event.destroy({
       where: {
         id: req.params.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  // Route for getting all the needs from the needs table for an organization
+  app.get("/api/orgs/:orgId/needs", function(req, res) {
+    db.Need.findAll({
+      where: {
+        OrganizationId: req.params.orgId
       }
     }).then(function(result) {
       res.json(result);
