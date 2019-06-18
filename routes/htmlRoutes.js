@@ -4,7 +4,14 @@ module.exports = function(app) {
   // Get all events and needs everywhere
   app.get("/", function(req, res) {
     db.Event.findAll({}).then(function(events) {
-      db.Need.findAll({}).then(function(needs) {
+      db.Need.findAll({
+        include: [
+          {
+            model: db.Organization
+          }
+        ]
+      }).then(function(needs) {
+        console.log(needs);
         res.render("index", {
           events: events,
           needs: needs
