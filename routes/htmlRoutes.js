@@ -1,5 +1,6 @@
 var db = require("../models");
 
+// Export routes
 module.exports = function(app) {
   // Get all events and needs everywhere
   app.get("/", function(req, res) {
@@ -45,17 +46,19 @@ module.exports = function(app) {
     });
   });
 
-  // Organization login page
+  // Get organization login page
   app.get("/login", function(req, res) {
     db.Organization.findAll({}).then(function(orgs) {
       res.render("login", { orgs: orgs });
     });
   });
 
-  // TODO decide whether this page or event/need pages has org dropdown
-  // TODO query db for org names to be displayed in the dropdown
-  app.get("/dashboard", function(req, res) {
+  // Get organization dashboard
+  app.get("/dashboard/org/:id", function(req, res) {
     db.Event.findAll({
+      where: {
+        OrganizationId: req.params.id
+      },
       include: [
         {
           model: db.Organization
@@ -63,6 +66,9 @@ module.exports = function(app) {
       ]
     }).then(function(events) {
       db.Need.findAll({
+        where: {
+          OrganizationId: req.params.id
+        },
         include: [
           {
             model: db.Organization
