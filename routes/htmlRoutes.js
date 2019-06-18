@@ -88,14 +88,13 @@ module.exports = function(app) {
   app.get("/registration", function(req, res) {
     res.render("registration");
   });
+
   // Post new event page
-  // TODO query db for org names to be displayed in the dropdown
   app.get("/postevent", function(req, res) {
     res.render("postevent");
   });
 
   // Post new need page
-  // TODO query db for org names to be displayed in the dropdown
   app.get("/postneed", function(req, res) {
     res.render("postneed");
   });
