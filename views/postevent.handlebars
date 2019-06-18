@@ -3,151 +3,135 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">
                 {{!-- <img src="/public/images/logo-placeholder.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> --}}
-                App Name
+                Civic Reach
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
     </div>
     </nav>
 </div>
 <div class="container">
     <div class="col-8 offset-2">
-        <div class="row">
-            <h3>Not in our system? <a href="/registration" type="button" class="btn btn-link">Click here to
-                    register!</a></h3>
+        <form id="eventForm" class="clearfix mb-4" action="POST">
+            <h3>Post an Upcoming Event</h3>
+            <div class="form-group">
+                <label for="eventTitle">Event Title</label>
+                <input type="text" id="eventTitle" class="form-control" aria-describedby="eventTitle" placeholder=""
+                    name="eventTitle" required>
+            </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="orgName">Select your organization name</label>
+                    <label class="input-group-text" for="type">Select the event type</label>
                 </div>
                 {{!-- TODO make values correspond with id's --}}
-                <select class="custom-select" id="orgName">
+                <select class="custom-select" id="type">
                     <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">Fundraiser</option>
+                    <option value="2">Work Party</option>
+                    <option value="3">Community Meetup</option>
                 </select>
             </div>
-            <form id="eventForm" class="clearfix mb-4 col-6" action="POST">
-                <h3>Post an upcoming event</h3>
-                <div class="form-group">
-                    <label for="eventTitle">Event Title</label>
-                    <input type="text" id="eventTitle" class="form-control" aria-describedby="eventTitle"
-                        placeholder="" name="eventTitle" required>
+            <div class="form-group">
+                <label for="eventDate">Event Date</label>
+                <input type="date" id="eventDate" name="eventDate" class="form-control" aria-describedby="eventDate"
+                    placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="startTime">Event Start Time</label>
+                <input type="time" id="startTime" name="startTime" class="form-control" aria-describedby="startTime"
+                    placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="endTime">Event End Time</label>
+                <input type="time" id="endTime" name="endTime" class="form-control" aria-describedby="endTime"
+                    placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="placeTitle">Venue Name</label>
+                <input type="text" id="placeTitle" name="placeTitle" class="form-control" aria-describedby="placeTitle"
+                    placeholder="What is the name of the place where the event will occur?" required>
+            </div>
+            <div class="form-group">
+                <label for="eventInputAddress">Event Address</label>
+                <input type="text" class="form-control" id="eventInputAddress" name="eventInputAddress"
+                    placeholder="1234 Main St" required>
+            </div>
+            <div class="form-group">
+                <label for="eventInputAddress2">Event Address 2</label>
+                <input type="text" class="form-control" id="eventInputAddress2"
+                    placeholder="(Optional - Suite number or floor)">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="eventInputCity">City</label>
+                    <input type="text" class="form-control" id="eventInputCity" name="eventInputCity" required>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="type">Select the event type</label>
-                    </div>
-                    {{!-- TODO make values correspond with id's --}}
-                    <select class="custom-select" id="type">
+                <div class="form-group col-md-4">
+                    <label for="eventInputState">State</label>
+                    <select id="eventInputState" name="eventInputState" class="form-control" required>
                         <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="AK">AK</option>
+                        <option value="AL">AL</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="eventDate">Event Date</label>
-                    <input type="date" id="eventDate" name="eventDate" class="form-control" aria-describedby="eventDate" placeholder="" required>
+                <div class="form-group col-md-2">
+                    <label for="eventInputZip">Zip</label>
+                    <input type="text" class="form-control" id="eventInputZip" name="eventInputZip" required>
                 </div>
-                <div class="form-group">
-                    <label for="startTime">Event Start Time</label>
-                    <input type="time" id="startTime" name="startTime" class="form-control" aria-describedby="startTime" placeholder="" required>
-                </div>
-                <div class="form-group">
-                    <label for="endTime">Event End Time</label>
-                    <input type="time" id="endTime" name="endTime" class="form-control" aria-describedby="endTime" placeholder="" required>
-                </div>
-                <div class="form-group">
-                    <label for="placeTitle">Venue Name</label>
-                    <input type="text" id="placeTitle" name="placeTitle" class="form-control" aria-describedby="placeTitle"
-                        placeholder="What is the name of the place where the event will occur?" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventInputAddress">Event Address</label>
-                    <input type="text" class="form-control" id="eventInputAddress" name="eventInputAddress" placeholder="1234 Main St" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventInputAddress2">Event Address 2</label>
-                    <input type="text" class="form-control" id="eventInputAddress2"
-                        placeholder="(Optional - Suite number or floor)">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="eventInputCity">City</label>
-                        <input type="text" class="form-control" id="eventInputCity" name="eventInputCity" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="eventInputState">State</label>
-                        <select id="eventInputState" name="eventInputState" class="form-control" required>
-                            <option selected>Choose...</option>
-                            <option value="AK">AK</option>
-                            <option value="AL">AL</option>
-                            <option value="AZ">AZ</option>
-                            <option value="AR">AR</option>
-                            <option value="CA">CA</option>
-                            <option value="CO">CO</option>
-                            <option value="CT">CT</option>
-                            <option value="DE">DE</option>
-                            <option value="FL">FL</option>
-                            <option value="GA">GA</option>
-                            <option value="HI">HI</option>
-                            <option value="ID">ID</option>
-                            <option value="IL">IL</option>
-                            <option value="IN">IN</option>
-                            <option value="IA">IA</option>
-                            <option value="KS">KS</option>
-                            <option value="KY">KY</option>
-                            <option value="LA">LA</option>
-                            <option value="ME">ME</option>
-                            <option value="MD">MD</option>
-                            <option value="MA">MA</option>
-                            <option value="MI">MI</option>
-                            <option value="MN">MN</option>
-                            <option value="MS">MS</option>
-                            <option value="MO">MO</option>
-                            <option value="MT">MT</option>
-                            <option value="NE">NE</option>
-                            <option value="NV">NV</option>
-                            <option value="NH">NH</option>
-                            <option value="NJ">NJ</option>
-                            <option value="NM">NM</option>
-                            <option value="NY">NY</option>
-                            <option value="NC">NC</option>
-                            <option value="ND">ND</option>
-                            <option value="OH">OH</option>
-                            <option value="OK">OK</option>
-                            <option value="OR">OR</option>
-                            <option value="PA">PA</option>
-                            <option value="RI">RI</option>
-                            <option value="SC">SC</option>
-                            <option value="SD">SD</option>
-                            <option value="TN">TN</option>
-                            <option value="TX">TX</option>
-                            <option value="UT">UT</option>
-                            <option value="VT">VT</option>
-                            <option value="VA">VA</option>
-                            <option value="WA">WA</option>
-                            <option value="WV">WV</option>
-                            <option value="WI">WI</option>
-                            <option value="WY">WY</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="eventInputZip">Zip</label>
-                        <input type="text" class="form-control" id="eventInputZip" name="eventInputZip" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="eventDescription">Event Description</label>
-                    <textarea class="form-control" id="eventDescription" aria-describedby="eventDescription"
-                        placeholder="Enter your event description here" name="eventDescription" required></textarea>
-                    <button id="event-submit" class="btn btn-primary float-right">Submit</button>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <label for="eventDescription">Event Description</label>
+                <textarea class="form-control" id="eventDescription" aria-describedby="eventDescription"
+                    placeholder="Enter your event description here" name="eventDescription" required></textarea>
+                <button id="event-submit" class="btn btn-primary float-right">Submit</button>
+            </div>
+        </form>
     </div>
 </div>
 

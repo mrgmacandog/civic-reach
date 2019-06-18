@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">
                 {{!-- <img src="/public/images/logo-placeholder.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> --}}
-                App Name
+                Civic Reach
             </a>
     </div>
     </nav>
@@ -22,10 +22,13 @@
                     <option value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
                 </select>
-                <a href="/dashboard" id="login-btn" type="submit" class="btn btn-primary float-right">Log in</a>
-                <h3>Not in our system? <a href="/registration" type="button" class="btn btn-link">Click here to
-                        register!</a></h3>
+                <a href="/dashboard" id="login-btn" role="button" class="btn btn-primary">Log in</a>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <h3>Not in our system? <a href="/registration" role="button" class="btn btn-primary">Click here to register!</a></h3>
         </div>
     </div>
 </div>
