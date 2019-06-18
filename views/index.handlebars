@@ -23,11 +23,11 @@
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Welcome to (App Name)!</h1>
-          <p class="lead">Enter your zipcode to view local concerns or <button type="button" class="btn btn-link">use my
+          <p class="lead">Enter your zipcode to view local concerns or <button type="button" id="location-btn" class="btn btn-link">use my
               location</button></p>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Your Zipcode" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input id="input-zip" class="form-control mr-sm-2" type="search" placeholder="Your Zipcode" aria-label="Search">
+            <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -59,8 +59,14 @@
             <ul id="example-list" class="list-group">
               {{#each events}}
               <li data-id="{{this.id}}" class="list-group-item">
-                <a href="example/{{this.id}}">{{this.text}}</a>
-                <button class="btn btn-danger float-right delete">ｘ</button>
+                <h5>{{this.eventTitle}}</h5>
+                <p>{{this.description}}</p>
+                <p>{{this.venueName}}</p>
+                <p>{{this.address}}</p>
+                <p>{{this.address2}}</p>
+                <p>{{this.city}}, {{this.state}} {{this.zip}}</p>
+                <p>{{this.startTime}} - {{this.endTime}}</p>
+                {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
               </li>
               {{/each}}
             </ul>
@@ -70,8 +76,14 @@
             <ul id="example-list" class="list-group">
               {{#each needs}}
               <li data-id="{{this.id}}" class="list-group-item">
-                <a href="example/{{this.id}}">{{this.text}}</a>
-                <button class="btn btn-danger float-right delete">ｘ</button>
+                <h5>{{this.needTitle}}</h5>
+                <p>{{this.description}}</p>
+                <p>{{this.quantity}}</p>
+                <p>{{this.Organization.name}}</p>
+                <p>{{this.Organization.address}}</p>
+                <p>{{this.Organization.address2}}</p>
+                <p>{{this.Organization.city}}, {{this.Organization.state}} {{this.Organization.zip}}</p>
+                {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
               </li>
               {{/each}}
             </ul>
