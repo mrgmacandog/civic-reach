@@ -32,7 +32,7 @@
             .val()
             .trim()
         };
-        console.log(newOrg);
+        // console.log(newOrg);
 
         // Add new org to Organizations table in database
         $.ajax({
@@ -42,7 +42,13 @@
           type: "POST",
           url: "api/orgs",
           data: JSON.stringify(newOrg)
-        }).then(function() {
+        }).then(function(result) {
+          // Clear sessionStorage
+          sessionStorage.clear();
+
+          // Store all content into sessionStorage
+          sessionStorage.setItem("orgId", result.id);
+
           // Redirect to dashboard once org is registered
           window.location.replace("/dashboard");
         });
