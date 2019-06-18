@@ -19,6 +19,6 @@ $("#login-btn").on("click", function(event) {
     sessionStorage.setItem("orgId", orgId);
 
     // Redirect to dashboard adter logging in
-    window.location = "/dashboard";
+    window.location = "/dashboard/org/" + orgId;
   }
 });

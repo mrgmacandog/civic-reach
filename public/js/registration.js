@@ -50,7 +50,7 @@
           sessionStorage.setItem("orgId", result.id);
 
           // Redirect to dashboard once org is registered
-          window.location.replace("/dashboard");
+          window.location.replace("/dashboard/org/" + result.id);
         });
       }
     });
