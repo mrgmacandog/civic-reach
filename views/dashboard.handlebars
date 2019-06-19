@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row org-dashboard">
         <div class="col-6">
             <h3>Your Events</h3>
             <ul id="example-list" class="list-group">
@@ -30,12 +30,12 @@
                 {{!-- {{#if this.OrganizationId ===}} --}}
                 <li data-id="{{this.id}}" class="list-group-item">
                     <h5>{{this.eventTitle}}</h5>
-                    <p>{{this.description}}</p>
-                    <p>{{this.venueName}}</p>
-                    <p>{{this.address}}</p>
+                    <p><strong>Event Description: </strong>{{this.description}}</p>
+                    <p><strong>Location: </strong>{{this.venueName}}</p>
+                    <p><strong>Address: </strong>{{this.address}}</p>
                     <p>{{this.address2}}</p>
                     <p>{{this.city}}, {{this.state}} {{this.zip}}</p>
-                    <p>{{this.startTime}} - {{this.endTime}}</p>
+                    <p><strong>When: </strong>{{this.startTime}} - {{this.endTime}}</p>
                     {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
                 </li>
                 {{/each}}
@@ -48,9 +48,9 @@
                 {{#each needs}}
                 {{!-- {{#if this.OrganizationId ===}} --}}
                 <li data-id="{{this.id}}" class="list-group-item">
-                    <h5>{{this.needTitle}}</h5>
-                    <p>{{this.description}}</p>
-                    <p>{{this.quantity}}</p>
+                    <h5>{{this.needTitle}} Needed</h5>
+                    <p><strong>Description: </strong>{{this.description}}</p>
+                    <p><strong>Quantity Needed: </strong>{{this.quantity}}</p>
                     {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
                 </li>
                 {{/each}}
