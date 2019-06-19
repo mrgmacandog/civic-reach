@@ -4,7 +4,13 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all events and needs everywhere
   app.get("/", function(req, res) {
-    db.Event.findAll({}).then(function(events) {
+    db.Event.findAll({
+      include: [
+        {
+          model: db.Organization
+        }
+      ]
+    }).then(function(events) {
       db.Need.findAll({
         include: [
           {
@@ -26,7 +32,12 @@ module.exports = function(app) {
     db.Event.findAll({
       where: {
         zip: req.params.zip
-      }
+      },
+      include: [
+        {
+          model: db.Organization
+        }
+      ]
     }).then(function(events) {
       db.Need.findAll({
         include: [

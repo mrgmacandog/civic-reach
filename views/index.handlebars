@@ -1,32 +1,26 @@
 <div id="home">
   <div class="row">
     <div class="col-12">
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="/">
-          {{!-- <img src="/public/images/logo-placeholder.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> --}}
+          <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
           Civic Reach
         </a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          {{!-- <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
-          <a href="/login" class="btn btn-primary" role="button"> Organization Login</a>
-          {{!-- </form> --}}
-        </div>
+        <a href="/login" class="btn btn-primary float-right" role="button"> Organization Login</a>
+      </nav>
     </div>
-    </nav>
   </div>
   <div class="row">
     <div class="col-12">
-      <div class="jumbotron jumbotron-fluid">
+      <div class="jumbotron jumbotron-fluid" style = "background-image: url(/images/jumbotron.jpg">
         <div class="container">
           <h1 class="display-4">Welcome to Civic Reach!</h1>
-          <p class="lead">Enter your zipcode to view local concerns or <button type="button" id="location-btn" class="btn btn-link">use my
+          <p class="lead">Enter your zipcode to view local concerns or <button type="button" id="location-btn"
+              class="btn btn-link">use my
               location</button></p>
           <form class="form-inline my-2 my-lg-0">
-            <input id="input-zip" class="form-control mr-sm-2" type="search" placeholder="Your Zipcode" aria-label="Search">
+            <input id="input-zip" class="form-control mr-sm-2" type="search" placeholder="Your Zipcode"
+              aria-label="Search">
             <button id="search-btn" class="btn btn-primary" role="button">Search</button>
           </form>
         </div>
@@ -60,12 +54,14 @@
               {{#each events}}
               <li data-id="{{this.id}}" class="list-group-item">
                 <h5>{{this.eventTitle}}</h5>
-                <p>{{this.description}}</p>
-                <p>{{this.venueName}}</p>
-                <p>{{this.address}}</p>
+                <p><strong>Event Description: </strong>{{this.description}}</p>
+                <p><strong>Location: </strong>{{this.venueName}}</p>
+                <p><strong>Address: </strong>{{this.address}}</p>
                 <p>{{this.address2}}</p>
                 <p>{{this.city}}, {{this.state}} {{this.zip}}</p>
-                <p>{{this.startTime}} - {{this.endTime}}</p>
+                <p><strong>When: </strong>{{this.startTime}} - {{this.endTime}} on {{this.date}}</p>
+                <p><strong>Contact:</strong> {{this.Organization.phone}}</p>
+                <p>{{this.Organization.email}}</p>
                 {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
               </li>
               {{/each}}
@@ -76,13 +72,15 @@
             <ul id="example-list" class="list-group">
               {{#each needs}}
               <li data-id="{{this.id}}" class="list-group-item">
-                <h5>{{this.needTitle}}</h5>
-                <p>{{this.description}}</p>
-                <p>{{this.quantity}}</p>
-                <p>{{this.Organization.name}}</p>
+                <h5>{{this.needTitle}} Needed</h5>
+                <p><strong>Description: </strong>{{this.description}}</p>
+                <p><strong>Quantity Needed: </strong>{{this.quantity}}</p>
+                <p><strong>Posted By:</strong> {{this.Organization.name}}</p>
                 <p>{{this.Organization.address}}</p>
                 <p>{{this.Organization.address2}}</p>
                 <p>{{this.Organization.city}}, {{this.Organization.state}} {{this.Organization.zip}}</p>
+                <p><strong>Contact:</strong> {{this.Organization.phone}}</p>
+                <p>{{this.Organization.email}}</p>
                 {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
               </li>
               {{/each}}

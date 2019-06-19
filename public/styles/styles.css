@@ -1,7 +1,44 @@
-.list-group-item {
-  line-height: 2.5;
-}
-
 #location-btn {
   padding: 0;
+  font-size: 100%;
+}
+p {
+  line-height: 2%;
+}
+
+h5 {
+  line-height: 200%;
+}
+
+.org-dashboard{
+  margin-top: 5%;
+}
+
+.footer {
+  margin-top: 25px;
+  position: sticky;
+  padding-top: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: gainsboro;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 70px;
+}
+
+.jumbotron {
+  background-size: cover;
 }
