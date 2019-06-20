@@ -37,9 +37,5 @@
         });
       }
     });
-    // When Register button is clicked
-    // $("#donationSubmit").on("click", function() {
-    //   event.preventDefault();
-    //});
   });
 })();
