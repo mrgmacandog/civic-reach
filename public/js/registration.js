@@ -54,9 +54,5 @@
         });
       }
     });
-    // When Register button is clicked
-    // $("#register-btn").on("click", function() {
-    //   event.preventDefault();
-    // });
   });
 })();

@@ -61,9 +61,5 @@
         });
       }
     });
-    // When Register button is clicked
-    // $("#event-submit").on("click", function() {
-    //   event.preventDefault();
-    // });
   });
 })();
